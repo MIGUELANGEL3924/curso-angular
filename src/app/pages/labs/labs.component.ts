@@ -27,8 +27,13 @@ export class LabsComponent {
     avatar: 'https://www.w3schools.com/howto/img_avatar.png'
 
   }
+  clickhandler() {
+    alert('Hola')
+  }
 
-
+  changeHandler(event: Event) {
+    console.log(event);
+  }
 }
 
 

@@ -3,21 +3,23 @@
         <div class="container">
             <h1>My Day</h1>
             <p>All my tasks in one place</p>
-            <input class="new-todo" placeholder="Type new todo" autofocus type="text" />
+            <input class="new-todo" placeholder="Type new todo" autofocus type="text"
+                (change)="changeHandler($event)" />
         </div>
     </header>
     <div class="container todoapp-wrapper">
         <!-- This section should be hidden by default and shown when there are todos -->
         <section class="main">
             <ul class="todo-list">
-                <li class="completed">
+                <li *ngFor="let task of task2(); index as i">
                     <div class="view">
-                        <input class="toggle" type="checkbox" checked />
-                        <label>Learn JavaScript</label>
-                        <button class="destroy"></button>
+                        <input class="toggle" type="checkbox" />
+                        <label>{{ task}}</label>
+                        <button class="destroy" (click)="deleteTask(i)"></button>
                     </div>
-                    <input class="edit" value="Learn JavaScript" />
+                    <input class="edit" value="Buy a unicorn" />
                 </li>
+                <!--
                 <li>
                     <div class="view">
                         <input class="toggle" type="checkbox" />
@@ -26,6 +28,7 @@
                     </div>
                     <input class="edit" value="Buy a unicorn" />
                 </li>
+                
                 <li class="editing">
                     <div class="view">
                         <input class="toggle" type="checkbox" />
@@ -34,7 +37,9 @@
                     </div>
                     <input class="edit" value="Make dishes" />
                 </li>
+                 -->
             </ul>
+
         </section>
         <!-- This footer should be hidden by default and shown when there are todos -->
         <footer class="footer">
